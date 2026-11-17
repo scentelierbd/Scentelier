@@ -304,7 +304,7 @@ var SIZES = [3,5,10,15,30];
 // "নতুন সংযোজন" ও "বেস্ট সেলিং" এ যে পারফিউম দেখাবে (নিচের তালিকার নাম হুবহু লিখুন)
 var REL = [];   // নতুন রিলিজ (এখন ফাঁকা, ফাঁকা থাকলে সেকশন দেখায় না)
 var NEW = ["Supremacy Not Only Intense","9pm Rebel","Kiss & Sea Nicotine","9pm Night Out","Club De Nuit Elite"];
-var OOS = ["212 Men NYC","Atlantis Extrait","Freeze in Flames","Imperial Ocean","Teriaq Intense","Spirito Ignite"]; // স্টক আউট
+var OOS = ["212 Men NYC","Atlantis Extrait","Freeze in Flames","Imperial Ocean","Spirito Ignite"]; // স্টক আউট
 var BEST = ["Liquid Brun","9pm Night Out","Stronger With You Intensely"];
 var DES = ["Stronger With You Intensely","Le Male Le Parfum","The One EDP","Homme EDT Intense","Eros EDP"];   // বেস্ট ডিজাইনার
 // দাম টাকায়, সাইজ অনুযায়ী: 3, 5, 10, 15, 30ml
@@ -321,7 +321,7 @@ var PERFUMES = [
   {brand:"Lattafa", name:"Asad Bourbon", p:[150,225,385,540,990]},
   {brand:"Rasasi", name:"Hawas Ice", p:[165,265,490,675,1265]},
   {brand:"Rasasi", name:"Hawas Ice Freeze", p:[170,265,480,680,1290]},
-  {brand:"Lattafa", name:"Teriaq Intense", p:[175,285,525,730,1405]},
+  {brand:"Lattafa", name:"Teriaq Intense", p:[205,310,560,800,1555]},
   {brand:"Afnan", name:"Collectors Edition", p:[245,380,710,995,1965]},
   {brand:"Rasasi", name:"Hawas Black", p:[150,240,415,590,1100]},
   {brand:"Rasasi", name:"Hawas OG", p:[145,230,415,560,1060]},
@@ -355,7 +355,7 @@ var T = {
 var lang = "en";
 try{ var sv = localStorage.getItem("lang"); if(sv === "en" || sv === "bn") lang = sv; }catch(e){}
 function t(k){ return T[lang][k]; }
-var size = 10, q = "";
+var size = 3, q = "";
 function match(p){ return (p.brand + " " + p.name).toLowerCase().indexOf(q) > -1; }
 var grid = document.getElementById("grid");
 var toast = document.getElementById("toast");
@@ -385,7 +385,7 @@ function makeCard(p, badge){
     '<div class="chips" role="group"></div><div class="price"></div>'+
     '<div class="btns"><button type="button" class="btn add"></button></div>';
   c.querySelector(".brand").textContent = p.brand;
-  c.querySelector(".name").textContent = p.name;
+  c.querySelector(".name").textContent = p.name; 
   var pic = c.querySelector(".pic");
   if(IMGS[p.name]){
     var srcs = IMGS2[p.name] ? [IMGS2[p.name], IMGS[p.name]] : [IMGS[p.name]];
@@ -614,6 +614,8 @@ function renderBottles(){
   });
   document.getElementById("btsoon").hidden = !soon;
 }
+
+
 
 // ===== Menu / pages =====
 var view = "home", menu = document.getElementById("menu"), burger = document.getElementById("burger");
